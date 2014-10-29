@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		2E4FBDC419EA3E5A000CFB81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4FBDC319EA3E5A000CFB81 /* AppDelegate.swift */; };
 		2E4FBDC719EA3E5A000CFB81 /* Health_Days.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E4FBDC519EA3E5A000CFB81 /* Health_Days.xcdatamodeld */; };
-		2E4FBDC919EA3E5A000CFB81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4FBDC819EA3E5A000CFB81 /* ViewController.swift */; };
+		2E4FBDC919EA3E5A000CFB81 /* HealthPointsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4FBDC819EA3E5A000CFB81 /* HealthPointsController.swift */; };
 		2E4FBDCC19EA3E5A000CFB81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4FBDCA19EA3E5A000CFB81 /* Main.storyboard */; };
 		2E4FBDCE19EA3E5A000CFB81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4FBDCD19EA3E5A000CFB81 /* Images.xcassets */; };
 		2E4FBDD119EA3E5A000CFB81 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4FBDCF19EA3E5A000CFB81 /* LaunchScreen.xib */; };
 		2E4FBDDD19EA3E5A000CFB81 /* Health_DaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4FBDDC19EA3E5A000CFB81 /* Health_DaysTests.swift */; };
 		2E4FBDE819EA3E6C000CFB81 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4FBDE719EA3E6C000CFB81 /* HealthKit.framework */; };
+		2EF4063319F08A810068BB51 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4063219F08A810068BB51 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +33,7 @@
 		2E4FBDC219EA3E5A000CFB81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E4FBDC319EA3E5A000CFB81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4FBDC619EA3E5A000CFB81 /* Health_Days.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Health_Days.xcdatamodel; sourceTree = "<group>"; };
-		2E4FBDC819EA3E5A000CFB81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E4FBDC819EA3E5A000CFB81 /* HealthPointsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPointsController.swift; sourceTree = "<group>"; };
 		2E4FBDCB19EA3E5A000CFB81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E4FBDCD19EA3E5A000CFB81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E4FBDD019EA3E5A000CFB81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -41,6 +42,7 @@
 		2E4FBDDC19EA3E5A000CFB81 /* Health_DaysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health_DaysTests.swift; sourceTree = "<group>"; };
 		2E4FBDE619EA3E6C000CFB81 /* Health Days.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Health Days.entitlements"; sourceTree = "<group>"; };
 		2E4FBDE719EA3E6C000CFB81 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		2EF4063219F08A810068BB51 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +88,12 @@
 			children = (
 				2E4FBDE619EA3E6C000CFB81 /* Health Days.entitlements */,
 				2E4FBDC319EA3E5A000CFB81 /* AppDelegate.swift */,
-				2E4FBDC819EA3E5A000CFB81 /* ViewController.swift */,
+				2E4FBDC819EA3E5A000CFB81 /* HealthPointsController.swift */,
+				2EF4063219F08A810068BB51 /* SettingsController.swift */,
 				2E4FBDCA19EA3E5A000CFB81 /* Main.storyboard */,
 				2E4FBDCD19EA3E5A000CFB81 /* Images.xcassets */,
-				2E4FBDCF19EA3E5A000CFB81 /* LaunchScreen.xib */,
 				2E4FBDC519EA3E5A000CFB81 /* Health_Days.xcdatamodeld */,
+				2E4FBDCF19EA3E5A000CFB81 /* LaunchScreen.xib */,
 				2E4FBDC119EA3E5A000CFB81 /* Supporting Files */,
 			);
 			path = "Health Days";
@@ -227,7 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E4FBDC919EA3E5A000CFB81 /* ViewController.swift in Sources */,
+				2EF4063319F08A810068BB51 /* SettingsController.swift in Sources */,
+				2E4FBDC919EA3E5A000CFB81 /* HealthPointsController.swift in Sources */,
 				2E4FBDC719EA3E5A000CFB81 /* Health_Days.xcdatamodeld in Sources */,
 				2E4FBDC419EA3E5A000CFB81 /* AppDelegate.swift in Sources */,
 			);
@@ -429,6 +433,7 @@
 				2E4FBDE219EA3E5A000CFB81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E4FBDE319EA3E5A000CFB81 /* Build configuration list for PBXNativeTarget "Health DaysTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +442,7 @@
 				2E4FBDE519EA3E5A000CFB81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

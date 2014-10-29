@@ -9,18 +9,17 @@
 import UIKit
 import HealthKit
 
-class ViewController: UIViewController {
+class HealthPointsController: UIViewController {
 
     let health = HKHealthStore()
+    @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //scroll.scrollEnabled = true
+        //scroll.contentSize = CGSizeMake(view.bounds.size.width, 1000)
         // Do any additional setup after loading the view, typically from a nib.
-        if(HKHealthStore.isHealthDataAvailable()){
-            //health.requestAuthorizationToShareTypes(nil, readTypes: NSSet(array:[HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)]), completion: nil)
-            //print(getPastQuantities(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierFlightsClimbed), numberOfDays: 6))
-        }
-        
+        updateContent(nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +27,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func updateContent(sender: AnyObject?) {
+        if(HKHealthStore.isHealthDataAvailable()){
+            health.requestAuthorizationToShareTypes(nil, readTypes: NSSet(array:[HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)]), completion: nil)
+            var data = getPastQuantities(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount), numberOfDays: 20)
+            var days = Array(data.keys)
+            sort(&days, { (day1 : NSDate, day2 : NSDate) -> Bool in
+                return day1.timeIntervalSince1970 > day2.timeIntervalSince1970
+            })
+            var forTextView = ""
+            for day in days{
+                var date = "\(day)".componentsSeparatedByString(" ")[0]
+                forTextView += "\(date):\t\(data[day]!)\n"
+            }
+            textView.text = forTextView
+            
+        }
+    }
     
     func getPastQuantities(type : HKQuantityType, numberOfDays: Int) -> Dictionary<NSDate, HKQuantity> {
         
@@ -37,7 +53,7 @@ class ViewController: UIViewController {
         var endDate = calendar.dateByAddingUnit(.DayCalendarUnit, value: 1, toDate: startDate, options: nil)
         
         var data : Dictionary<NSDate, HKQuantity> = [:]
-        var done : Bool = false
+        var countDone = 0
         
         for(var day = 0; day > -(numberOfDays); day--){
             
@@ -47,14 +63,16 @@ class ViewController: UIViewController {
             
             var predicate = HKQuery.predicateForSamplesWithStartDate(rangeStart, endDate: rangeEnd, options: nil)
             let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: .CumulativeSum) { query, result, error in
-                    data.updateValue(result.sumQuantity(), forKey: rangeStart!)
-                    done = final
+                if let value = result{
+                    data.updateValue(value.sumQuantity(), forKey: rangeStart!)
+                }
+                countDone++
             }
             
             health.executeQuery(query)
         }
         
-        while(!done){ }
+        while(countDone < numberOfDays){ }
         return data
         
     }
